@@ -30,7 +30,6 @@ A deep learning project for detecting **Pneumonia** from chest X-ray images usin
 
 ## ⚙️ Installation
 
-```bash
 ##📚 Usage
 ##1️⃣ Train the Model
 -Dataset automatically downloaded via kagglehub
@@ -70,5 +69,4 @@ DenseNet121 (imagenet weights, frozen)
 -Dataset by Paul Mooney (Kaggle)
 
 -Model backbone: DenseNet121 (pretrained on ImageNet)
-
 
