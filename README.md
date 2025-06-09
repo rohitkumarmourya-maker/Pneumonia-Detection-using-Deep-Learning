@@ -40,33 +40,51 @@ The dataset is automatically downloaded via Kagglehub. The model is trained on c
 ### 2️⃣ Visualize Results
 
 Matplotlib visualizations are included in the code to track training progress. For example, you can plot the accuracy over epochs:
-
-###🌐 Deployment
+---
+### 🌐 Deployment
 
 Launch an interactive web interface using Gradio for easy inference. This allows you to upload an X-ray image and get a pneumonia prediction.
 
-###🏗️ Model Architecture
+To launch the demo, run the deployment script (e.g., within a Jupyter notebook):
 
-####The model architecture builds upon the DenseNet121 backbone, which is initialized with pre-trained ImageNet weights and kept frozen during initial training:
+```python
+import gradio as gr
+# Assuming 'demo' is your Gradio interface object
+demo.launch(share=True)
+```
+---
+### 🏗️ Model Architecture
 
-*DenseNet121 (imagenet weights, frozen)
-**GlobalAveragePooling2D
-*BatchNormalization
-*Dropout(0.4)
-*Dense(256, activation='ReLU')
-*BatchNormalization
-*Dropout(0.3)
-*Dense(1, activation='Sigmoid')
-####This architecture is designed to classify images into one of two classes: NORMAL or PNEUMONIA.
+The model architecture builds upon the DenseNet121 backbone, which is initialized with pre-trained ImageNet weights and kept frozen during initial training:
 
-###💡 Future Improvements
-*Hyperparameter Tuning: Further optimize learning rate, dropout rates, batch size, and other training parameters for potentially better performance and faster convergence.
-*Grad-CAM Visualizations: Implement Grad-CAM (Gradient-weighted Class Activation Mapping) to visualize which parts of the X-ray image the model focuses on when making a prediction, enhancing model interpretability and trust.
-*Deployment on Mobile/Web: Explore deploying the trained model to mobile devices (e.g., using TensorFlow Lite) or integrate it into a more robust web application for wider accessibility and real-world use.
-*Larger Dataset: Experiment with larger and more diverse chest X-ray datasets to improve generalization and robustness.
+1.DenseNet121 (imagenet weights, frozen)
 
-###🙏 Acknowledgements
-*Dataset: Heartfelt thanks to Paul Mooney for providing the comprehensive Chest X-Ray Images (Pneumonia) dataset on Kaggle.
-*Model Backbone: Appreciation to the developers of DenseNet121 and the ImageNet dataset for providing a powerful pre-trained model for transfer learning.
+2.GlobalAveragePooling2D
+
+3.BatchNormalization
+
+4.Dropout(0.4)
+
+5.Dense(256, activation='ReLU')
+
+6.BatchNormalization
+
+7.Dropout(0.3)
+
+8.Dense(1, activation='Sigmoid')
+
+This architecture is designed to classify images into one of two classes: NORMAL or PNEUMONIA.
+---
+### 💡 Future Improvements
+1.Hyperparameter Tuning: Further optimize learning rate, dropout rates, batch size, and other training parameters for potentially better performance and faster convergence.
+
+2.Grad-CAM Visualizations: Implement Grad-CAM (Gradient-weighted Class Activation Mapping) to visualize which parts of the X-ray image the model focuses on when making a prediction, enhancing model interpretability and trust.
+
+3.Deployment on Mobile/Web: Explore deploying the trained model to mobile devices (e.g., using TensorFlow Lite) or integrate it into a more robust web application for wider accessibility and real-world use.
+---
+### 🙏 Acknowledgements
+1. Dataset: Heartfelt thanks to Paul Mooney for providing the comprehensive Chest X-Ray Images (Pneumonia) dataset on Kaggle.
+
+2. Model Backbone: Appreciation to the developers of DenseNet121 and the ImageNet dataset for providing a powerful pre-trained model for transfer learning.
 
 
